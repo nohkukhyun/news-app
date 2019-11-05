@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import styled, { createGlobalStyle } from "styled-components";
 import axios from "axios";
-import View from "./components/View/View";
+import NewsList from "./components/NewsList/NewsList";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -59,8 +59,9 @@ class App extends Component {
         <div className="wrap_body">
           <div className="wrap_content_body">
             <button onClick={handleClick}>get News</button>
+            <NewsList data={newsData} />
           </div>
-          <View data={newsData} />
+          <textarea rows={7} value={newsData}></textarea>
         </div>
       </div>
     );
