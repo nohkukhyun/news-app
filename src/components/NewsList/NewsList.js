@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import NewsItem from "../NewsItem/NewsItem";
 import axios from "axios";
-import NewsCategory from "../NewsCategory/NewsCategory";
 
 const NewsListWrap = styled.div`
   position: relative;
@@ -56,7 +55,6 @@ const NewsList = ({ data }) => {
 
   return (
     <NewsListWrap>
-      <NewsCategory />
       {articles.map((article, i) => (
         <NewsItem key={article.url} article={article} />
       ))}

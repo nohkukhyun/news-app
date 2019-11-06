@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import styled, { createGlobalStyle } from "styled-components";
-import axios from "axios";
 import NewsList from "./components/NewsList/NewsList";
+import NewsCategory from "./components/NewsCategory/NewsCategory";
+import { categories } from "./shared/data/NewsCategories";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -43,6 +44,7 @@ class App extends Component {
         <GlobalStyle />
         <div className="wrap_body">
           <div className="wrap_content_body">
+            <NewsCategory cateItems={categories} />
             <NewsList />
           </div>
         </div>

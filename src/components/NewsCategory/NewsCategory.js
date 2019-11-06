@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { categories } from "../../shared/data/NewsCategories";
 
 const Category = styled.div`
   display: flex;
@@ -8,6 +7,10 @@ const Category = styled.div`
   justify-content: space-between;
   -ms-flex-pack: space-between;
   align-items: center;
+  .logo {
+    color: #333;
+    font-weight: bold;
+  }
   ul {
     list-style: none;
     display: flex;
@@ -19,16 +22,13 @@ const Category = styled.div`
   }
 `;
 
-const cateItems = categories;
-
-const NewsCategory = () => {
-  console.log({ cateItems });
+const NewsCategory = ({ cateItems }) => {
   return (
     <Category>
-      <h1>N</h1>
+      <h1 className="logo">N</h1>
       <ul>
         {cateItems.map((data, i) => {
-          return <li>{data.title}</li>;
+          return <li key={`newsitem-${i}`}>{data.title}</li>;
         })}
       </ul>
     </Category>
