@@ -9,17 +9,23 @@ const Category = styled.div`
   -ms-flex-pack: space-between;
   ul {
     list-style: none;
+    li {
+      padding: 5px 15px;
+      color: #444;
+    }
   }
 `;
 
-const NewsCategory = ({ categories }) => {
-  console.log({ categories });
+let cateItems = categories;
+
+const NewsCategory = () => {
+  console.log({ cateItems });
   return (
     <Category>
       <ul>
-        {categories.map((data, i) => (
-          <li>{data.title}</li>
-        ))}
+        {cateItems.map((data, i) => {
+          return <li>{data.title}</li>;
+        })}
       </ul>
     </Category>
   );
