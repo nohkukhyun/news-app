@@ -9,24 +9,30 @@ const NewsItemWrap = styled.div`
   -ms-flex-pack: start;
   align-items: flex-start;
   -ms-flex-align: start;
+  margin-bottom: 1rem;
   .thumbnail {
     margin-right: 1rem;
     img {
       display: block;
+      background-size: cover;
       width: 160px;
       height: 100px;
     }
   }
 
   .contents {
-    h2,
-    a {
-      color: #333;
+    text-align: left;
+    h2 {
+      font-size: 14px;
+      a {
+        color: #333;
+      }
     }
     p {
       line-height: 1.5;
       margin-top: 0.5rem;
       white-space: normal;
+      font-size: 12px;
     }
     & + & {
       margin-top: 3rem;
@@ -34,8 +40,8 @@ const NewsItemWrap = styled.div`
   }
 `;
 
-const NewsItem = ({ articles }) => {
-  const { title, description, url, urlToImage } = articles;
+const NewsItem = ({ article }) => {
+  const { title, description, url, urlToImage } = article;
   return (
     <NewsItemWrap>
       {urlToImage && (
