@@ -7,8 +7,11 @@ const Category = styled.div`
   display: -ms-flexbox;
   justify-content: space-between;
   -ms-flex-pack: space-between;
+  align-items: center;
   ul {
     list-style: none;
+    display: flex;
+    display: -ms-flexbox;
     li {
       padding: 5px 15px;
       color: #444;
@@ -16,12 +19,13 @@ const Category = styled.div`
   }
 `;
 
-let cateItems = categories;
+const cateItems = categories;
 
 const NewsCategory = () => {
   console.log({ cateItems });
   return (
     <Category>
+      <h1>N</h1>
       <ul>
         {cateItems.map((data, i) => {
           return <li>{data.title}</li>;

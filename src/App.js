@@ -20,11 +20,11 @@ const GlobalStyle = createGlobalStyle`
   .wrap_body{
     position: relative;
     width: 100%;
+    padding:10px 20px;
     .wrap_content_body{
       width: 1024px;
       border-top: 1px solid #e1e1e1;
       border-bottom: 1px solid #e1e1e1;
-      padding: 20px;
       position: relative;
       min-height: 500px;
       margin: 0 auto
