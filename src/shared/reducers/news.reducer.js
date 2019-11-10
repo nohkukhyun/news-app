@@ -1,8 +1,8 @@
-import { Observable, observable } from "rxjs";
+import { combineReducers } from "redux";
 import * as action from "../actions/news.action";
 
 const initalState = {
-  payload: []
+  isLoading: false
 };
 
 const fetchNews = (state = initalState, action) => {
@@ -10,12 +10,19 @@ const fetchNews = (state = initalState, action) => {
   switch (action.type) {
     case action.FETCH_NEWS:
       return {
-        ...state
+        isLoading: true,
+        payload: action.payload
       };
-
     case action.FETCH_NEWS_SUCCES:
       return {
-        ...state
+        isLoading: false,
+        payload: action.payload
+      };
+
+    case action.FETCH_NEWS_FAIL:
+      return {
+        isFetch: false,
+        payload: action.payload
       };
 
     default:
@@ -23,4 +30,6 @@ const fetchNews = (state = initalState, action) => {
   }
 };
 
-export default fetchNews;
+export default combineReducers({
+  news: fetchNews
+});
