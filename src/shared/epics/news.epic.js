@@ -1,5 +1,6 @@
-import { ajax, Observable } from "rxjs";
-import { ofType, mergeMap, combineEpics, map } from "redux-observable";
+import { ajax } from "rxjs/ajax";
+import { mergeMap, map } from "rxjs/operators";
+import { ofType, combineEpics } from "redux-observable";
 import * as action from "../actions/news.action";
 
 const fetchNewsEpic = action$ =>
@@ -14,12 +15,7 @@ const fetchNewsEpic = action$ =>
           map(response => ({
             type: action.FETCH_NEWS_SUCCESS,
             payload: response
-          })).catch(err =>
-            Observable.of({
-              type: action.FETCH_NEWS_FAIL,
-              payload: err
-            })
-          )
+          }))
         )
     )
   );
