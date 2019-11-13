@@ -1,6 +1,6 @@
 import { ajax } from "rxjs/ajax";
-import { mergeMap, map } from "rxjs/operators";
-import { ofType, combineEpics } from "redux-observable";
+import { map, mergeMap } from "rxjs/operators";
+import { ofType } from "redux-observable";
 import * as action from "../actions/news.action";
 
 const fetchNewsEpic = action$ =>
@@ -20,6 +20,4 @@ const fetchNewsEpic = action$ =>
     )
   );
 
-export default combineEpics({
-  newsEpic: fetchNewsEpic
-});
+export default [fetchNewsEpic];
