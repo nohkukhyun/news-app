@@ -41,10 +41,10 @@ const NewsItemWrap = styled.div`
 `;
 
 const NewsItem = ({ article }) => {
-  const { title, description, url, urlToImage } = article;
+  // const { title, description, url, urlToImage } = article;
   return (
     <NewsItemWrap>
-      {urlToImage && (
+      {/* {urlToImage && (
         <div className="thumbnail">
           <img src={urlToImage} alt={"thumbnail"} />
         </div>
@@ -54,7 +54,7 @@ const NewsItem = ({ article }) => {
           <a>{title}</a>
         </h2>
         <p>{description}</p>
-      </div>
+      </div> */}
     </NewsItemWrap>
   );
 };

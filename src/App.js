@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import NewsList from "./components/NewsList/NewsList";
 import NewsCategory from "./components/NewsCategory/NewsCategory";
 import { categories } from "./shared/data/NewsCategories";
+import NewsListContainer from "./containers/NewsListContainer/NewsListContainer";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -45,7 +46,7 @@ class App extends Component {
         <div className="wrap_body">
           <div className="wrap_content_body">
             <NewsCategory cateItems={categories} />
-            <NewsList />
+            <NewsListContainer />
           </div>
         </div>
       </div>
