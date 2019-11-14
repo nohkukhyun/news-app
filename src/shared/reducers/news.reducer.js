@@ -1,33 +1,30 @@
-import * as action from "../actions/news.action";
-import { combineReducers } from "redux";
-
 export const initalState = {
   isLoading: false,
-  payload: []
+  news: []
 };
 
-export default (state = initalState, { type, payload }) => {
+export default (state = initalState, action) => {
   // eslint-disable-next-line default-case
-  switch (type) {
+  switch (action.type) {
     case action.FETCH_NEWS:
       return {
         ...state,
         isLoading: true,
-        payload: payload
+        news: action.news
       };
     case action.FETCH_NEWS_SUCCESS:
-      console.log({ payload });
+      console.log(action.news);
       return {
         ...state,
         isLoading: false,
-        payload: payload
+        news: action.news
       };
 
     case action.FETCH_NEWS_FAIL:
       return {
         ...state,
         isFetch: false,
-        payload: payload
+        news: action.news
       };
 
     default:
