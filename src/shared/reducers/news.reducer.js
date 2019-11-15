@@ -1,30 +1,36 @@
+// import * as news from "../actions/news.action";
+
+import * as news from "../actions/news.action";
+
 export const initalState = {
-  isLoading: false,
-  news: []
+  isLoading: false
 };
 
-export default (state = initalState, action) => {
-  // eslint-disable-next-line default-case
-  switch (action) {
-    case action.FETCH_NEWS:
-      return {
-        ...state,
-        isLoading: true,
-        payload: action.state
+let nextData = {};
+export default (state = initalState, { type, payload }) => {
+  switch (type) {
+    case news.FETCH_NEWS:
+      nextData = state;
+      nextData = {
+        ...state.news,
+        isLoading: true
       };
-    case action.FETCH_NEWS_SUCCESS:
-      console.log(action.news);
-      return {
-        ...state,
-        isLoading: false,
-        payload: action.payload
-      };
+      return nextData;
 
-    case action.FETCH_NEWS_FAIL:
+    case news.FETCH_NEWS_SUCCESS:
+      // console.log({ payload });
+      let newsList = payload && payload.articles;
+      nextData = {
+        ...state.news,
+        isLoading: false,
+        newsList
+      };
+      return nextData;
+
+    case news.FETCH_NEWS_FAIL:
       return {
         ...state,
-        isLoading: false,
-        payload: action.payload
+        isLoading: false
       };
 
     default:

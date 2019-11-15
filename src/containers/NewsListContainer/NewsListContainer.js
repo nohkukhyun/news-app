@@ -15,19 +15,26 @@ class NewsListContainer extends Component {
   }
 
   render() {
-    console.log(this.props.fetchNews);
+    const { news } = this.props;
+    console.log("this news", news);
+
+    const isLoading = () => {
+      if (news.isLoading)
+        return <DotWave backgroundColor={`#333`} number={3} />;
+    };
+
     return (
       <NewsListWrap>
-        <DotWave backgroundColor={`#333`} number={3} />
-        <NewsList list={this.props.payload} />
+        {isLoading()}
+        <NewsList list={news.newsList} />
       </NewsListWrap>
     );
   }
 }
 
 const mapStateToProps = state => {
-  const payload = state.fetchNews.payload;
-  return { payload };
+  const news = state.news;
+  return { news };
 };
 
 const mapDispatchToProps = {

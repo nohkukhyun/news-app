@@ -40,21 +40,21 @@ const NewsItemWrap = styled.div`
   }
 `;
 
-const NewsItem = ({ article }) => {
-  // const { title, description, url, urlToImage } = article;
+const NewsItem = ({ data }) => {
+  console.log({ data });
   return (
     <NewsItemWrap>
-      {/* {urlToImage && (
+      {data.urlToImage && (
         <div className="thumbnail">
-          <img src={urlToImage} alt={"thumbnail"} />
+          <img src={data.urlToImage} alt={"thumbnail"} />
         </div>
       )}
       <div className="contents">
         <h2>
-          <a>{title}</a>
+          <a>{data.title}</a>
         </h2>
-        <p>{description}</p>
-      </div> */}
+        <p>{data.description}</p>
+      </div>
     </NewsItemWrap>
   );
 };
