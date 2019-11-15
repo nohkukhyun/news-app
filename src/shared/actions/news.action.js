@@ -2,7 +2,7 @@ export const FETCH_NEWS = "FETCH_NEWS";
 export const FETCH_NEWS_SUCCESS = "FETCH_NEWS_SUCCESS";
 export const FETCH_NEWS_FAIL = "FETCH_NEWS_FAIL";
 
-export const fetchNews = payload => ({
+export const fetchNewsRequest = payload => ({
   type: FETCH_NEWS,
   payload
 });

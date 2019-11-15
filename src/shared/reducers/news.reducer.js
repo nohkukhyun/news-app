@@ -5,26 +5,26 @@ export const initalState = {
 
 export default (state = initalState, action) => {
   // eslint-disable-next-line default-case
-  switch (action.type) {
+  switch (action) {
     case action.FETCH_NEWS:
       return {
         ...state,
         isLoading: true,
-        news: action.news
+        payload: action.state
       };
     case action.FETCH_NEWS_SUCCESS:
       console.log(action.news);
       return {
         ...state,
         isLoading: false,
-        news: action.news
+        payload: action.payload
       };
 
     case action.FETCH_NEWS_FAIL:
       return {
         ...state,
-        isFetch: false,
-        news: action.news
+        isLoading: false,
+        payload: action.payload
       };
 
     default:
