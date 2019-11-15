@@ -29,7 +29,7 @@ export default (state = initalState, { type, payload }) => {
 
     case news.FETCH_NEWS_FAIL:
       return {
-        ...state,
+        ...state.news,
         isLoading: false
       };
 

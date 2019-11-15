@@ -1,4 +1,5 @@
 import React from "react";
+import { Route } from "react-router-dom";
 import styled from "styled-components";
 
 const Category = styled.div`
@@ -28,7 +29,11 @@ const NewsCategory = ({ cateItems }) => {
       <h1 className="logo">N</h1>
       <ul>
         {cateItems.map((data, i) => {
-          return <li key={`newsitem-${i}`}>{data.title}</li>;
+          return (
+            <Route>
+              <li key={`newsitem-${i}`}>{data.title}</li>
+            </Route>
+          );
         })}
       </ul>
     </Category>
