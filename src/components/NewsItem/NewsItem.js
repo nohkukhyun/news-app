@@ -41,7 +41,7 @@ const NewsItemWrap = styled.div`
 `;
 
 const NewsItem = ({ data }) => {
-  console.log({ data });
+  // console.log({ data });
   return (
     <NewsItemWrap>
       {data.urlToImage && (

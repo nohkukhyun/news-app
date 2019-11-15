@@ -1,6 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Category = styled.div`
   display: flex;
@@ -19,20 +18,30 @@ const Category = styled.div`
     li {
       padding: 5px 15px;
       color: #444;
+      cursor: pointer;
+      &.active {
+        color: #505bda;
+        border-bottom: 1px solid #505bda;
+      }
     }
   }
 `;
 
-const NewsCategory = ({ cateItems }) => {
+const NewsCategory = ({ categories = [], category, onSelect }) => {
+  console.log({ category });
   return (
     <Category>
       <h1 className="logo">N</h1>
       <ul>
-        {cateItems.map((data, i) => {
+        {categories.map((data, i) => {
           return (
-            <Route>
-              <li key={`newsitem-${i}`}>{data.title}</li>
-            </Route>
+            <li
+              key={`newsitem-${i}`}
+              onClick={() => onSelect(data.name)}
+              className={category === data.name ? "active" : null}
+            >
+              {data.title}
+            </li>
           );
         })}
       </ul>

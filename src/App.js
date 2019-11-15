@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useCallback } from "react";
 import "./App.css";
 import styled, { createGlobalStyle } from "styled-components";
 import NewsList from "./components/NewsList/NewsList";
@@ -34,24 +34,25 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-class App extends Component {
-  state = {
-    newsData: null
-  };
+const App = () => {
+  const [category, setCategory] = useState("all");
+  const onSelect = useCallback(category => setCategory(category), []);
 
-  render() {
-    return (
-      <div className="App">
-        <GlobalStyle />
-        <div className="wrap_body">
-          <div className="wrap_content_body">
-            <NewsCategory cateItems={categories} />
-            <NewsListContainer />
-          </div>
+  return (
+    <div className="App">
+      <GlobalStyle />
+      <div className="wrap_body">
+        <div className="wrap_content_body">
+          <NewsCategory
+            categories={categories}
+            category={category}
+            onSelect={onSelect}
+          />
+          <NewsListContainer />
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;
