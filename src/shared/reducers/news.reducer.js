@@ -9,7 +9,7 @@ export const initalState = {
 let nextData = {};
 export default (state = initalState, { type, payload }) => {
   switch (type) {
-    case news.FETCH_NEWS:
+    case news.FETCH_NEWS_REQUEST:
       nextData = state;
       nextData = {
         ...state.news,

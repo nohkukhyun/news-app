@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const DotWaveWrap = styled.div`
   width: 100%;
-  height: calc(100vh - 82px);
+  height: calc(100vh - 110px);
   position: relative;
   .loading-bar {
     position: relative;

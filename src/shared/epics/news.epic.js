@@ -5,7 +5,7 @@ import * as action from "../actions/news.action";
 
 const fetchNewsEpic = action$ =>
   action$.pipe(
-    ofType(action.FETCH_NEWS),
+    ofType(action.FETCH_NEWS_REQUEST),
     mergeMap(action =>
       ajax
         .getJSON(
@@ -26,4 +26,4 @@ const fetchNewsEpic = action$ =>
     )
   );
 
-export default [fetchNewsEpic];
+export default fetchNewsEpic;
