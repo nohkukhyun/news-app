@@ -7,13 +7,14 @@ export const initalState = {
 };
 
 let nextData = {};
-export default (state = initalState, { type, payload }) => {
+export default (state = initalState, { type, payload, path }) => {
   switch (type) {
     case news.FETCH_NEWS_REQUEST:
       nextData = state;
       nextData = {
         ...state.news,
-        isLoading: true
+        isLoading: true,
+        path: path
       };
       return nextData;
 
@@ -23,6 +24,7 @@ export default (state = initalState, { type, payload }) => {
       nextData = {
         ...state.news,
         isLoading: false,
+        path: "",
         newsList
       };
       return nextData;

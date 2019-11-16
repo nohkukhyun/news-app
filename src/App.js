@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from "react";
 import "./App.css";
-import styled, { createGlobalStyle } from "styled-components";
-import NewsList from "./components/NewsList/NewsList";
+import { createGlobalStyle } from "styled-components";
 import NewsCategory from "./components/NewsCategory/NewsCategory";
 import { categories } from "./shared/data/NewsCategories";
 import NewsListContainer from "./containers/NewsListContainer/NewsListContainer";
@@ -17,6 +16,9 @@ const GlobalStyle = createGlobalStyle`
   }
   h1,h2,h3,h4,h5,h6,p{
     padding:0;
+  }
+  a{
+    text-decoration: none;
   }
 
   .wrap_body{
@@ -48,7 +50,7 @@ const App = () => {
             category={category}
             onSelect={onSelect}
           />
-          <NewsListContainer />
+          <NewsListContainer category={category} />
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ const NewsListWrap = styled.div`
   width: 100%;
 `;
 
-const NewsList = ({ list = [], children }) => {
+const NewsList = ({ list = [] }) => {
   console.log({ list });
 
   return (

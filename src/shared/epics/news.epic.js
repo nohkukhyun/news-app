@@ -14,7 +14,7 @@ const fetchNewsEpic = action$ =>
         .pipe(
           map(
             response => (
-              console.log("newsEpic", response),
+              console.log("newsEpic", action),
               {
                 type: "FETCH_NEWS_SUCCESS",
                 payload: response

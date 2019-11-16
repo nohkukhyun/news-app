@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 const Category = styled.div`
@@ -15,7 +16,7 @@ const Category = styled.div`
     list-style: none;
     display: flex;
     display: -ms-flexbox;
-    li {
+    a {
       padding: 5px 15px;
       color: #444;
       cursor: pointer;
@@ -35,13 +36,15 @@ const NewsCategory = ({ categories = [], category, onSelect }) => {
       <ul>
         {categories.map((data, i) => {
           return (
-            <li
+            <NavLink
               key={`newsitem-${i}`}
               onClick={() => onSelect(data.name)}
               className={category === data.name ? "active" : null}
+              exact={data.name === "all"}
+              to={data.name === "all" ? "/" : `${data.name}`}
             >
               {data.title}
-            </li>
+            </NavLink>
           );
         })}
       </ul>

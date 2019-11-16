@@ -15,8 +15,8 @@ class NewsListContainer extends Component {
   }
 
   render() {
-    const { news } = this.props;
-    console.log("this news", news);
+    const { news, category } = this.props;
+    console.log("this props", this.props);
 
     const isLoading = () => {
       if (news.isLoading)
@@ -41,7 +41,4 @@ const mapDispatchToProps = {
   fetchNewsRequest
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NewsListContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(NewsListContainer);
